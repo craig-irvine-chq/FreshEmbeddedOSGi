@@ -19,7 +19,7 @@ public class HostActivator implements BundleActivator
         m_context = null;
     }
 
-    public BundleContext getContext()
+    public BundleContext getBundleContext()
     {
         return m_context;
     }

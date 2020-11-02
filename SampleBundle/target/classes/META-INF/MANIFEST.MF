@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1604335046833
+Build-Jdk-Spec: 15
+Bundle-Activator: org.example.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: SampleBundle
+Bundle-SymbolicName: org.example.SampleBundle
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.example;uses:="org.example.interfaces,org.osgi.frame
+ work";version="1.0.0"
+Import-Package: org.example.interfaces,org.osgi.framework;version="[1.9,
+ 2)"
+Tool: Bnd-5.1.1.202006162103

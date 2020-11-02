@@ -1,6 +1,8 @@
 package org.example;
 
 
+import org.example.interfaces.StringTransformer;
+
 public class MyStringTransformer implements StringTransformer {
 
     @Override

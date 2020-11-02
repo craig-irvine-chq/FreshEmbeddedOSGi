@@ -3,40 +3,47 @@ package org.example;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.example.interfaces.StringTransformer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.osgi.framework.*;
 
-import tutorial.couplerBase.service.CouplerService;
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 /**
  * Unit test for simple App.
  */
 public class AppTest
 {
-    HostApplication felixManager = null;
-
+    EmbeddedOSGiContainer embeddedOSGiContainer = null;
+    StringTransformerServiceProvider serviceProvider;
 
     @Before
     public void initialiseFelix() throws BundleException {
-        felixManager = new HostApplication();
+        embeddedOSGiContainer = new EmbeddedOSGiContainer();
+        embeddedOSGiContainer.setEmbeddedOSGiServiceProviders(initializeProviders());
+        embeddedOSGiContainer.addSystemPackage("org.example.interfaces");
+        embeddedOSGiContainer.initialise();
+    }
+
+    @Test
+    public void testBundleClass() {
+        MyStringTransformer stringTransformer = new MyStringTransformer();
+        assertEquals("Test has been transformed", stringTransformer.transformString("Test"));
     }
 
     @Test
     public void testBundles() throws InvalidSyntaxException, BundleException, InterruptedException {
-        //Bundle[] bundles = felixManager.getInstalledBundles();
-        BundleContext bundleContext = felixManager.getBundleContext();
-        String interfaceBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleInterface/target/SampleInterface-1.0-SNAPSHOT.jar";
+
+        StringTransformer[] stringTransformers;
+        Bundle[] bundles = embeddedOSGiContainer.getInstalledBundles();
+        BundleContext bundleContext = embeddedOSGiContainer.getBundleContext();
         String implBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleBundle/target/SampleBundle-1.0-SNAPSHOT.jar";
 
-        Bundle interfaceBundleInstalled = bundleContext.installBundle(interfaceBundlePath);
         Bundle implBundleInstalled = bundleContext.installBundle(implBundlePath);
-        try {
-            interfaceBundleInstalled.start();
-        } catch ( BundleException e) {
-            System.out.println("Missing bundle:" + interfaceBundlePath);
-        }
 
         try {
             implBundleInstalled.start();
@@ -44,50 +51,23 @@ public class AppTest
             System.out.println("Missing bundle:" + implBundlePath);
 
         }
-        Bundle[] bundles = felixManager.getInstalledBundles();
-        Thread.sleep(1000);
-        StringTransformer stringTransformerService =
-                (StringTransformer)bundleContext.getServiceReference(StringTransformer.class.getName());
 
-        assertEquals(stringTransformerService.transformString("test"),  "test has been transformed");
-        assertTrue(true);
-    }
+        stringTransformers = this.serviceProvider.getStringTransformerServices();
+        assertEquals(stringTransformers[0].transformString("test"),  "test has been transformed");
 
-    @Test
-    public void testBasicBundles() throws InvalidSyntaxException, BundleException, InterruptedException {
-        Bundle[] bundles = felixManager.getInstalledBundles();
-        BundleContext bundleContext = felixManager.getBundleContext();
-        String interfaceBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleFelix/src/main/java/resources/couplerBase.jar";
-        String implBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleFelix/src/main/java/resources/coupler1.jar";
-
-        Bundle interfaceBundleInstalled = bundleContext.installBundle(interfaceBundlePath);
-        try {
-            interfaceBundleInstalled.start();
-        } catch ( BundleException e) {
-            System.out.println("Missing bundle:" + interfaceBundlePath);
-        }
-        Thread.sleep(1000);
-
-        Bundle implBundleInstalled = bundleContext.installBundle(implBundlePath);
-        try {
-            implBundleInstalled.start();
-        } catch(BundleException e) {
-            System.out.println("Missing bundle:" + implBundlePath);
-
-        }
-
-        Thread.sleep(1000);
-        ServiceReference[] refs = bundleContext.getServiceReferences(CouplerService.class.getName(), "(Language=*)");
-        assertTrue(refs!=null);
-        if (refs!=null && refs.length!=0) {
-            CouplerService couplerService = (CouplerService)refs[0];
-            assertEquals(couplerService.translateWord("test"),  "test has been transformed");
-        }
     }
 
     @After
     public void destroyFelix() throws BundleException, InterruptedException {
-        felixManager.getFelix().stop();
-        felixManager.getFelix().waitForStop(0);
+        embeddedOSGiContainer.getFelix().stop();
+        embeddedOSGiContainer.getFelix().waitForStop(0);
+    }
+
+
+    private Collection<MyServiceProvider> initializeProviders() {
+        Collection<MyServiceProvider> providers = new ArrayList<>();
+        this.serviceProvider = new StringTransformerServiceProvider();
+        providers.add(this.serviceProvider);
+        return providers;
     }
 }
