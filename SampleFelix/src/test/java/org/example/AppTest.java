@@ -24,50 +24,32 @@ public class AppTest
     @Before
     public void initialiseFelix() throws BundleException {
         embeddedOSGiContainer = new EmbeddedOSGiContainer();
-        embeddedOSGiContainer.setEmbeddedOSGiServiceProviders(initializeProviders());
-        embeddedOSGiContainer.addSystemPackage("org.example.interfaces");
         embeddedOSGiContainer.initialise();
     }
 
     @Test
     public void testBundleClass() {
         MyStringTransformer stringTransformer = new MyStringTransformer();
-        assertEquals("Test has been transformed", stringTransformer.transformString("Test"));
+        assertEquals(stringTransformer.transformString("Test"), "Test has been transformed");
     }
 
     @Test
     public void testBundles() throws InvalidSyntaxException, BundleException, InterruptedException {
-
-        StringTransformer[] stringTransformers;
-        Bundle[] bundles = embeddedOSGiContainer.getInstalledBundles();
-        BundleContext bundleContext = embeddedOSGiContainer.getBundleContext();
         String implBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleBundle/target/SampleBundle-1.0-SNAPSHOT.jar";
-
-        Bundle implBundleInstalled = bundleContext.installBundle(implBundlePath);
-
+        Bundle implBundleInstalled = embeddedOSGiContainer.getBundleContext().installBundle(implBundlePath);
         try {
             implBundleInstalled.start();
         } catch(BundleException e) {
             System.out.println("Missing bundle:" + implBundlePath);
 
         }
-
-        stringTransformers = this.serviceProvider.getStringTransformerServices();
+        StringTransformer[] stringTransformers = this.embeddedOSGiContainer.getStringTransformerServices();
         assertEquals(stringTransformers[0].transformString("test"),  "test has been transformed");
-
     }
 
     @After
     public void destroyFelix() throws BundleException, InterruptedException {
-        embeddedOSGiContainer.getFelix().stop();
-        embeddedOSGiContainer.getFelix().waitForStop(0);
+        embeddedOSGiContainer.shutdownApplication();
     }
 
-
-    private Collection<MyServiceProvider> initializeProviders() {
-        Collection<MyServiceProvider> providers = new ArrayList<>();
-        this.serviceProvider = new StringTransformerServiceProvider();
-        providers.add(this.serviceProvider);
-        return providers;
-    }
 }

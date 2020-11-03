@@ -15,9 +15,7 @@ public class StringTransformerServiceProvider implements MyServiceProvider {
         this.stringServiceTracker.close();
     }
 
-    public StringTransformer[] getStringTransformerServices() {
-        return this.stringServiceTracker.getServices(new StringTransformer[0]);
-    }
+
 
 
     @Override

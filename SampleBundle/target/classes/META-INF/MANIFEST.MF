@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1604335046833
+Bnd-LastModified: 1604419934550
 Build-Jdk-Spec: 15
 Bundle-Activator: org.example.Activator
 Bundle-ManifestVersion: 2
