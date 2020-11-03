@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.491" tests="2" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.367" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\test-classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\classes;C:\Users\craig.irvine\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\craig.irvine\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleInterface\target\SampleInterface-1.0-SNAPSHOT.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleProvider\target\SampleProvider-1.0-SNAPSHOT.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleBundle\target\SampleBundle-1.0-SNAPSHOT.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.main\6.0.3\org.apache.felix.main-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.framework\6.0.3\org.apache.felix.framework-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.9\animal-sniffer-annotations-1.9.jar;"/>
+    <property name="java.class.path" value="D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\test-classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\classes;C:\Users\craig.irvine\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\craig.irvine\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleInterface\target\classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleBundle\target\classes;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.main\6.0.3\org.apache.felix.main-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.framework\6.0.3\org.apache.felix.framework-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.9\animal-sniffer-annotations-1.9.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Users\craig.irvine\.jdks\openjdk-15\bin"/>
-    <property name="sun.java.command" value="C:\Users\CRAIG~1.IRV\AppData\Local\Temp\surefire2735897704859902627\surefirebooter16759561498240073914.jar C:\Users\craig.irvine\AppData\Local\Temp\surefire2735897704859902627 2020-11-03T16-12-08_049-jvmRun1 surefire13946394209949691694tmp surefire_212792827060071594529tmp"/>
+    <property name="sun.java.command" value="C:\Users\CRAIG~1.IRV\AppData\Local\Temp\surefire13994734676962936955\surefirebooter6669723830734457984.jar C:\Users\craig.irvine\AppData\Local\Temp\surefire13994734676962936955 2020-11-03T16-26-46_057-jvmRun1 surefire8915480305921396107tmp surefire_115947482971862450245tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\test-classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\classes;C:\Users\craig.irvine\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\craig.irvine\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleInterface\target\SampleInterface-1.0-SNAPSHOT.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleProvider\target\SampleProvider-1.0-SNAPSHOT.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleBundle\target\SampleBundle-1.0-SNAPSHOT.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.main\6.0.3\org.apache.felix.main-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.framework\6.0.3\org.apache.felix.framework-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.9\animal-sniffer-annotations-1.9.jar;"/>
+    <property name="surefire.test.class.path" value="D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\test-classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleFelix\target\classes;C:\Users\craig.irvine\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\craig.irvine\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleInterface\target\classes;D:\Documents\tutorials\FreshEmbeddedOSGi\SampleBundle\target\classes;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.main\6.0.3\org.apache.felix.main-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\apache\felix\org.apache.felix.framework\6.0.3\org.apache.felix.framework-6.0.3.jar;C:\Users\craig.irvine\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.9\animal-sniffer-annotations-1.9.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\craig.irvine"/>
     <property name="user.language" value="en"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\CRAIG~1.IRV\AppData\Local\Temp\surefire2735897704859902627\surefirebooter16759561498240073914.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\CRAIG~1.IRV\AppData\Local\Temp\surefire13994734676962936955\surefirebooter6669723830734457984.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15+36-1562"/>
@@ -56,12 +56,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="testBundleClass" classname="org.example.AppTest" time="0.325"/>
-  <testcase name="testBundles" classname="org.example.AppTest" time="0.114">
-    <error message="Index 0 out of bounds for length 0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at org.example.AppTest.testBundles(AppTest.java:53)
-</error>
-    <system-out><![CDATA[Missing bundle:file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleBundle/target/SampleBundle-1.0-SNAPSHOT.jar
-]]></system-out>
-  </testcase>
+  <testcase name="testBundles" classname="org.example.AppTest" time="0.321"/>
 </testsuite>

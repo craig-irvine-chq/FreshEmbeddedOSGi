@@ -1,16 +1,12 @@
 package org.example;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.example.interfaces.StringTransformer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.osgi.framework.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 
 /**
@@ -19,22 +15,16 @@ import java.util.Collection;
 public class AppTest
 {
     EmbeddedOSGiContainer embeddedOSGiContainer = null;
-    StringTransformerServiceProvider serviceProvider;
 
     @Before
-    public void initialiseFelix() throws BundleException {
+    public void initialiseFelix() {
         embeddedOSGiContainer = new EmbeddedOSGiContainer();
         embeddedOSGiContainer.initialise();
     }
 
-    @Test
-    public void testBundleClass() {
-        MyStringTransformer stringTransformer = new MyStringTransformer();
-        assertEquals(stringTransformer.transformString("Test"), "Test has been transformed");
-    }
 
     @Test
-    public void testBundles() throws InvalidSyntaxException, BundleException, InterruptedException {
+    public void testBundles() throws BundleException {
         String implBundlePath = "file:/D:/Documents/tutorials/FreshEmbeddedOSGi/SampleBundle/target/SampleBundle-1.0-SNAPSHOT.jar";
         Bundle implBundleInstalled = embeddedOSGiContainer.getBundleContext().installBundle(implBundlePath);
         try {

@@ -10,7 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>SampleInterface</module>
-        <module>SampleProvider</module>
         <module>SampleFelix</module>
         <module>SampleBundle</module>
     </modules>

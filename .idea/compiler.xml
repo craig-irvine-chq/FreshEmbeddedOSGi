@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SampleProvider" />
         <module name="SampleBundle" />
         <module name="SampleInterface" />
         <module name="SampleFelix" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SampleProvider" target="15" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

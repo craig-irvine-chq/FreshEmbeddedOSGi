@@ -1,6 +1,6 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -9,12 +9,10 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testBundleClass() {
+        MyStringTransformer stringTransformer = new MyStringTransformer();
+        assertEquals(stringTransformer.transformString("Test"), "Test has been transformed");
     }
 }

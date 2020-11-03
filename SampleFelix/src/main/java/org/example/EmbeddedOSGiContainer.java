@@ -15,7 +15,6 @@ public class EmbeddedOSGiContainer
 {
     private HostActivator activator;
     private Felix felix;
-    private ContainerConfiguration containerConfiguration = new ContainerConfiguration();
     private ServiceTracker<StringTransformer, StringTransformer> stringServiceTracker;
 
     public EmbeddedOSGiContainer() {
@@ -27,7 +26,6 @@ public class EmbeddedOSGiContainer
         Map<String, Object> config = new HashMap<>();
         config.put(FRAMEWORK_SYSTEMPACKAGES_EXTRA, "org.example.interfaces");
         this.configHostActivator(config);
-        this.configBundles(config);
 
         try
         {
@@ -64,7 +62,23 @@ public class EmbeddedOSGiContainer
         config.put(SYSTEMBUNDLE_ACTIVATORS_PROP, activators);
     }
 
-    private void configBundles(Map<String, Object> config) {
-        this.containerConfiguration.apply(config);
+    class HostActivator implements BundleActivator
+    {
+        private BundleContext m_context = null;
+
+        public void start(BundleContext context)
+        {
+            m_context = context;
+        }
+
+        public void stop(BundleContext context)
+        {
+            m_context = null;
+        }
+
+        public BundleContext getBundleContext()
+        {
+            return m_context;
+        }
     }
 }

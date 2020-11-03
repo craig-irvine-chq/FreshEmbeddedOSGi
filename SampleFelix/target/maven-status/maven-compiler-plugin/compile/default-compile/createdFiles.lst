@@ -1,1 +1,3 @@
-org\example\HostActivator.class
+org\example\ContainerConfiguration.class
+org\example\EmbeddedOSGiContainer$HostActivator.class
+org\example\EmbeddedOSGiContainer.class
