@@ -1,0 +1,15 @@
+# Created at 2020-11-04T08:51:41.059
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2020-11-04T08:51:41.064
+WARNING: Illegal reflective access by org.apache.felix.framework.ext.ClassPathExtenderFactory$DefaultClassLoaderExtender (file:/C:/Users/craig.irvine/.m2/repository/org/apache/felix/org.apache.felix.main/6.0.3/org.apache.felix.main-6.0.3.jar) to method java.net.URLClassLoader.addURL(java.net.URL)
+
+# Created at 2020-11-04T08:51:41.070
+WARNING: Please consider reporting this to the maintainers of org.apache.felix.framework.ext.ClassPathExtenderFactory$DefaultClassLoaderExtender
+
+# Created at 2020-11-04T08:51:41.075
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2020-11-04T08:51:41.080
+WARNING: All illegal access operations will be denied in a future release
+
